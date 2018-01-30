@@ -1,0 +1,30 @@
+keycloak:
+  uri: #https://keycloak.example.com
+  realm: #YOUR_REALM
+  oidc:
+    client-id: keycloaker
+    client-secret: #YOUR_SECRET
+  api:
+    uri: ${keycloak.uri}/auth/admin/realms/${keycloak.realm}
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-name: Keycloak
+            client-id: ${keycloak.oidc.client-id}
+            client-secret: ${keycloak.oidc.client-secret}
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - email
+        provider:
+          keycloak:
+            user-name-attribute: preferred_username
+            authorization-uri: ${keycloak.uri}/auth/realms/${keycloak.realm}/protocol/openid-connect/auth
+            token-uri:         ${keycloak.uri}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+            jwk-set-uri:       ${keycloak.uri}/auth/realms/${keycloak.realm}/protocol/openid-connect/certs
+            user-info-uri:     ${keycloak.uri}/auth/realms/${keycloak.realm}/protocol/openid-connect/userinfo
