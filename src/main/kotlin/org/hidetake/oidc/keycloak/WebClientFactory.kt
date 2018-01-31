@@ -1,4 +1,4 @@
-package org.hidetake.keycloaker.keycloak
+package org.hidetake.oidc.keycloak
 
 import org.springframework.http.HttpHeaders
 import org.springframework.security.core.context.SecurityContextHolder

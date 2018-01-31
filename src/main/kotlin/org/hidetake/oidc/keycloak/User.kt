@@ -1,4 +1,4 @@
-package org.hidetake.keycloaker.keycloak
+package org.hidetake.oidc.keycloak
 
 data class User(
     val id: String,

@@ -1,4 +1,4 @@
-package org.hidetake.keycloaker.keycloak
+package org.hidetake.oidc.keycloak
 
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Flux

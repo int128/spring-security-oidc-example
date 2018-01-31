@@ -1,4 +1,4 @@
-package org.hidetake.keycloaker
+package org.hidetake.oidc
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
